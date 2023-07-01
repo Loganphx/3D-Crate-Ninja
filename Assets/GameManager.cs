@@ -22,7 +22,16 @@ public class GameManager : MonoBehaviour
         {
             yield return new WaitForSeconds(spawnRate);
             int index = UnityEngine.Random.Range(0, targetPrefabs.Count);
-            spawnedTargets.Add(Instantiate(targetPrefabs[index]));
+            var target = Instantiate(targetPrefabs[index]);
+            target.OnDeath += OnTargetDestroyed;
+            spawnedTargets.Add(target);
         }
+    }
+    
+    private void OnTargetDestroyed(Target target)
+    {
+        target.OnDeath -= OnTargetDestroyed;
+        Destroy(target.gameObject);
+        spawnedTargets.Remove(target);
     }
 }
