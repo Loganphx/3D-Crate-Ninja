@@ -153,11 +153,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPrefabs:
-  - {fileID: 3999811051737555476, guid: d31bb9f2d0627cd4bbaae995fdc36181, type: 3}
-  - {fileID: 4982773677463451495, guid: e54474e6b6439c644885fc23871fe22d, type: 3}
-  - {fileID: 2964006911280487235, guid: dcc46edaee94e1742bafbfa70fa501de, type: 3}
-  - {fileID: 3488898755857810535, guid: e80dc480517a37446be22fde5346b058, type: 3}
+  - {fileID: 2921779236263743036, guid: e80dc480517a37446be22fde5346b058, type: 3}
+  - {fileID: 6491439667369983019, guid: d31bb9f2d0627cd4bbaae995fdc36181, type: 3}
+  - {fileID: 7684868092543593000, guid: e54474e6b6439c644885fc23871fe22d, type: 3}
+  - {fileID: 1114963042073548390, guid: dcc46edaee94e1742bafbfa70fa501de, type: 3}
   spawnedTargets: []
+  spawnRate: 1
 --- !u!4 &127976797
 Transform:
   m_ObjectHideFlags: 0

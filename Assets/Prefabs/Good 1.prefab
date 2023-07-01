@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4138815718615250875}
   - component: {fileID: 7051162321910556434}
   - component: {fileID: 1274200470524043926}
-  - component: {fileID: 3999811051737555476}
+  - component: {fileID: 6491439667369983019}
   m_Layer: 0
   m_Name: Good 1
   m_TagString: Untagged
@@ -134,7 +134,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3999811051737555476
+--- !u!114 &6491439667369983019
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,6 +143,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5377990338181905490}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af6a4045cf502464cb0b84b9093885ea, type: 3}
+  m_Script: {fileID: 11500000, guid: 3590242ee9e041fbbd4b1520789a7161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minSpeed: 12
+  maxSpeed: 16
+  maxTorque: 10
+  xRange: 4
+  ySpawnPos: -6

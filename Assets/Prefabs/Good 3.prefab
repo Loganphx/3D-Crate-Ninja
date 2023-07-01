@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7125729244663396163}
   - component: {fileID: 2479056692208982113}
   - component: {fileID: 6520097793307386312}
-  - component: {fileID: 2964006911280487235}
+  - component: {fileID: 1114963042073548390}
   m_Layer: 0
   m_Name: Good 3
   m_TagString: Untagged
@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4796446389344332305
 MeshFilter:
@@ -134,7 +134,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2964006911280487235
+--- !u!114 &1114963042073548390
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,6 +143,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8735050132480230882}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af6a4045cf502464cb0b84b9093885ea, type: 3}
+  m_Script: {fileID: 11500000, guid: bf921380bc2f42e98c13441c846197b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minSpeed: 12
+  maxSpeed: 16
+  maxTorque: 10
+  xRange: 4
+  ySpawnPos: -6
