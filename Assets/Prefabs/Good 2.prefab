@@ -151,3 +151,4 @@ MonoBehaviour:
   maxTorque: 10
   xRange: 4
   ySpawnPos: -6
+  explosionParticle: {fileID: 7303472089845130122, guid: 6cbc21f5e9162483993a2b84b14d5ac8, type: 3}

@@ -1,8 +1,9 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody), typeof(BoxCollider))]
 public abstract class Target : MonoBehaviour
 {
-    public delegate void TargetDeath(Target target);
+    public delegate void TargetDeath(Target target, int value);
 
     private Rigidbody _targetRb;
 
@@ -12,9 +13,13 @@ public abstract class Target : MonoBehaviour
     [SerializeField] protected float xRange = 4;
     [SerializeField] protected float ySpawnPos = -6;
 
+    [SerializeField] public ParticleSystem explosionParticle;
+
+    protected int value = 1;
+    
     public TargetDeath OnDeath { get; set; }
     
-    private void Awake()
+    protected virtual void Awake()
     {
         _targetRb = GetComponent<Rigidbody>();
     }
@@ -28,12 +33,12 @@ public abstract class Target : MonoBehaviour
 
     private void OnMouseDown()
     {
-        OnDeath?.Invoke(this);
+        OnDeath?.Invoke(this, value);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        OnDeath?.Invoke(this);
+        OnDeath?.Invoke(this, value);
     }
     
     public Rigidbody TargetRigidbody => _targetRb;
