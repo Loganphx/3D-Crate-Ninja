@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -25,6 +26,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI gameOverText;
     [SerializeField] private Button restartButton;
+    [SerializeField] private Button quitButton;
+
+    private void Awake()
+    {
+        titleScreen = transform.Find("Mainscreen").gameObject;
+        gameplayScreen = transform.Find("Gameplay").gameObject;
+        scoreText = gameplayScreen.transform.Find("Canvas").Find("Text_Score").GetComponent<TextMeshProUGUI>();
+        gameOverText = gameplayScreen.transform.Find("Canvas").Find("Text_GameOver").GetComponent<TextMeshProUGUI>();
+        restartButton = gameOverText.transform.Find("Button_Restart").GetComponent<Button>();
+    }
 
     public void SetDifficulty(int value)
     {
@@ -32,12 +43,15 @@ public class GameManager : MonoBehaviour
         gameplayScreen.SetActive(true);
         difficulty = value;
         spawnRate /= difficulty;
-    }
-    private void Start()
-    {
+        spawnedTargets = new List<Target>();
         _isRunning = true;
+        StartGame();
+    }
+    private void StartGame()
+    {
         UpdateScore(0);
         restartButton.onClick.AddListener(RestartGame);
+        quitButton.onClick.AddListener(Quit);
         StartCoroutine(SpawnTargets());
     }
 
@@ -102,5 +116,10 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Restarting game");
         SceneManager.LoadScene("Prototype 5");
+    }
+
+    private void Quit()
+    {
+        Application.Quit();
     }
 }
