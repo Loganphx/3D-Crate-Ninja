@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -34,7 +33,8 @@ public class GameManager : MonoBehaviour
         gameplayScreen = transform.Find("Gameplay").gameObject;
         scoreText = gameplayScreen.transform.Find("Canvas").Find("Text_Score").GetComponent<TextMeshProUGUI>();
         gameOverText = gameplayScreen.transform.Find("Canvas").Find("Text_GameOver").GetComponent<TextMeshProUGUI>();
-        restartButton = gameOverText.transform.Find("Button_Restart").GetComponent<Button>();
+        restartButton = gameOverText.transform.GetChild(0).Find("Button_Restart").GetComponent<Button>();
+        quitButton = gameOverText.transform.GetChild(0).Find("Button_Quit").GetComponent<Button>();
     }
 
     public void SetDifficulty(int value)
@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score: " + score;
     }
 
-    public void GameOver()
+    private void GameOver()
     {
         gameOverText.gameObject.SetActive(true);
         _isRunning = false;
@@ -114,12 +114,15 @@ public class GameManager : MonoBehaviour
 
     private void RestartGame()
     {
-        Debug.Log("Restarting game");
-        SceneManager.LoadScene("Prototype 5");
+        SceneManager.LoadScene("GameScene");
     }
 
     private void Quit()
     {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #else
         Application.Quit();
+        #endif
     }
 }
